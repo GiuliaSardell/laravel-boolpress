@@ -3708,7 +3708,15 @@ var render = function () {
           1
         ),
         _vm._v(" "),
-        _vm._m(0),
+        _c(
+          "li",
+          [
+            _c("router-link", { attrs: { to: { name: "blog" } } }, [
+              _vm._v(" Blog "),
+            ]),
+          ],
+          1
+        ),
         _vm._v(" "),
         _c(
           "li",
@@ -3733,18 +3741,7 @@ var render = function () {
     ]),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [
-      _c("a", { staticClass: "active", attrs: { href: "#" } }, [
-        _vm._v("Blog"),
-      ]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -19262,9 +19259,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_pages_Home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/pages/Home */ "./resources/js/components/pages/Home.vue");
 /* harmony import */ var _components_pages_About__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/pages/About */ "./resources/js/components/pages/About.vue");
 /* harmony import */ var _components_pages_Contact__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/pages/Contact */ "./resources/js/components/pages/Contact.vue");
+/* harmony import */ var _components_pages_Posts__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/pages/Posts */ "./resources/js/components/pages/Posts.vue");
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
+
 
 
 
@@ -19284,6 +19283,10 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: '/contatti',
     name: 'contact',
     component: _components_pages_Contact__WEBPACK_IMPORTED_MODULE_4__["default"]
+  }, {
+    path: '/blog',
+    name: 'blog',
+    component: _components_pages_Posts__WEBPACK_IMPORTED_MODULE_5__["default"]
   }]
 });
 /* harmony default export */ __webpack_exports__["default"] = (router); //esporto la classe router
