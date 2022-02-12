@@ -1,7 +1,9 @@
 <template>
   <article>
     <h3>
-      <a href="#">{{post.title}}</a>
+      <router-link :to="{name: 'detail', params: {slug: post.slug}}">
+        {{post.title}}
+      </router-link>
     </h3>
     <p class="data">{{formatDate}}</p>
     <p class="text">{{ truncateText }}</p>

@@ -13,4 +13,12 @@ class PostController extends Controller
         $posts = Post::paginate(4); //prendo tutti i post
         return response()->json($posts);
     }
+
+    public function show($slug){
+        $post = Post::where('slug', $slug)->first();
+
+        return response()->json($post);
+        //genero il json del singolo post in base allo slug
+    }
 }
+
