@@ -1,9 +1,11 @@
 <template>
-  <div>
-    <h1> Post detail </h1> 
+  <div class="container">
     <h2>
-      <!-- {{post.title}} -->
+      {{post.title}}
     </h2>
+    <p>
+      {{post.content}}
+    </p>
   </div>
 
 </template>
@@ -25,20 +27,24 @@ export default {
   },
   methods:{
     getApi(){
-      axios.get(this.apiUrl + this.$route.params.slug)
+      axios.get(this.apiUrl + '/' + this.$route.params.slug)
       .then(res => {
         this.post = res.data
-        console.log(this.post);
+        console.log('post ',this.post);
       })
     }
   },
   mounted(){
     this.getApi();
-    console.log(this.$route.params.slug);
+    console.log('api ',this.$route.params.slug);
   }
 }
 </script>
 
 <style lang="scss" scoped>
+h2{
+  margin: 20px 0;
+  
+}
 
 </style>
