@@ -2024,6 +2024,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'PostDetail',
   data: function data() {
@@ -2031,9 +2038,9 @@ __webpack_require__.r(__webpack_exports__);
       apiUrl: 'http://127.0.0.1:8000/api/posts',
       post: {
         title: '',
-        content: '' // category: {},
-        // tags: []
-
+        content: '',
+        category: {},
+        tags: []
       }
     };
   },
@@ -2050,6 +2057,8 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     this.getApi();
     console.log('api ', this.$route.params.slug);
+    console.log('category', this.post.category);
+    console.log('tags', this.post.tags);
   }
 });
 
@@ -3698,11 +3707,28 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("h2", [_vm._v("\n    " + _vm._s(_vm.post.title) + "\n  ")]),
-    _vm._v(" "),
-    _c("p", [_vm._v("\n    " + _vm._s(_vm.post.content) + "\n  ")]),
-  ])
+  return _c(
+    "div",
+    { staticClass: "container" },
+    [
+      _c("h2", [_vm._v("\n    " + _vm._s(_vm.post.title) + "\n  ")]),
+      _vm._v(" "),
+      _vm.post.category
+        ? _c("span", [_vm._v("Category: " + _vm._s(_vm.post.category.name))])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm._l(_vm.post.tags, function (tag, index) {
+        return _c("p", { key: "tag" + index }, [
+          _vm._v("\n  Tags: " + _vm._s(tag.name) + "\n\n  "),
+        ])
+      }),
+      _vm._v(" "),
+      _c("p", { staticStyle: { margin: "20px 0" } }, [
+        _vm._v("\n    " + _vm._s(_vm.post.content) + "\n  "),
+      ]),
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
