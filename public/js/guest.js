@@ -2116,6 +2116,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2126,7 +2127,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      apiUrl: 'http://127.0.0.1:8000/api/posts?page=',
+      apiUrl: 'http://127.0.0.1:8000/api/posts',
       //prendo tutti i post
       posts: null,
       //per gestire il loading
@@ -2143,7 +2144,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-      axios.get(this.apiUrl + page).then(function (res) {
+      axios.get(this.apiUrl + '?page=' + page).then(function (res) {
         _this.posts = res.data.posts.data;
         _this.categories = res.data.categories;
         _this.tags = res.data.tags;
@@ -2153,6 +2154,14 @@ __webpack_require__.r(__webpack_exports__);
           current: res.data.current_page,
           last: res.data.last_page
         };
+      });
+    },
+    getPostCategory: function getPostCategory(name_category) {
+      var _this2 = this;
+
+      axios.get(this.apiUrl + '/postcategory/' + name_category).then(function (res) {
+        console.log(res.data.posts);
+        _this2.posts = res.data.posts;
       });
     }
   }
@@ -2270,6 +2279,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -3922,6 +3932,7 @@ var render = function () {
         _vm._v(" "),
         _c("Sidebar", {
           attrs: { tags: _vm.tags, categories: _vm.categories },
+          on: { getPostCategory: _vm.getPostCategory },
         }),
       ],
       1
@@ -4093,9 +4104,22 @@ var render = function () {
           "div",
           { staticClass: "categoriesList" },
           _vm._l(_vm.categories, function (category) {
-            return _c("span", { key: "cat" + category.id }, [
-              _vm._v("\r\n          " + _vm._s(category.name) + "\r\n        "),
-            ])
+            return _c(
+              "span",
+              {
+                key: "cat" + category.id,
+                on: {
+                  click: function ($event) {
+                    return _vm.$emit("getPostCategory", category.name)
+                  },
+                },
+              },
+              [
+                _vm._v(
+                  "\r\n          " + _vm._s(category.name) + "\r\n        "
+                ),
+              ]
+            )
           }),
           0
         ),

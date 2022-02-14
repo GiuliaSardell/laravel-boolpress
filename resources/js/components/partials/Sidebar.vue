@@ -8,6 +8,7 @@
         <span
           v-for="category in categories"
           :key="`cat${category.id}`"
+          @click="$emit('getPostCategory', category.name)"
         >
           {{category.name}}
         </span>

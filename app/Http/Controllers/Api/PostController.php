@@ -27,14 +27,14 @@ class PostController extends Controller
     }
 
     public function getPostsByCategory($name_category){
-        $category = Category::where('name', $name_category)->first();
+        $category = Category::where('name', $name_category)->with('posts.tags')->first();
         
         
         return response()->json($category);
     }
 
     public function getPostsByTag($slug_tag){
-        $tag = Tag::where('slug', $slug_tag)->first();
+        $tag = Tag::where('slug', $slug_tag)->with('posts.category')->first();
         
         
         return response()->json($tag);
