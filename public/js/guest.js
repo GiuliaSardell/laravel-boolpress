@@ -2108,6 +2108,33 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Posts',
@@ -2277,7 +2304,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "main[data-v-9212e6a6] {\n  padding: 30px 0;\n}\nmain .container[data-v-9212e6a6] {\n  margin-bottom: 50px;\n}", ""]);
+exports.push([module.i, "main[data-v-9212e6a6] {\n  padding: 30px 0;\n}\nmain .container[data-v-9212e6a6] {\n  margin-bottom: 50px;\n  display: flex;\n}\nmain .postsList[data-v-9212e6a6] {\n  margin: 0 50px;\n}\nmain .categoriesBox[data-v-9212e6a6], main .tagsBox[data-v-9212e6a6] {\n  border: 1px solid black;\n  padding: 10px;\n  margin: 20px 0;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}\nmain .categoriesBox .categoriesList[data-v-9212e6a6], main .categoriesBox .tagsList[data-v-9212e6a6], main .tagsBox .categoriesList[data-v-9212e6a6], main .tagsBox .tagsList[data-v-9212e6a6] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-wrap: wrap;\n}\nmain .categoriesBox span[data-v-9212e6a6], main .tagsBox span[data-v-9212e6a6] {\n  display: inline-block;\n  padding: 5px;\n  margin: 10px;\n  background-color: lightblue;\n}\nmain .tagsList span[data-v-9212e6a6] {\n  background-color: lightgreen;\n}", ""]);
 
 // exports
 
@@ -3753,11 +3780,11 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("main", [
-    _vm.posts
-      ? _c("div", [
-          _c(
+    _c("div", { staticClass: "container" }, [
+      _vm.posts
+        ? _c(
             "div",
-            { staticClass: "container" },
+            { staticClass: "postsList" },
             [
               _c("h1", [_vm._v("i miei post")]),
               _vm._v(" "),
@@ -3792,9 +3819,11 @@ var render = function () {
               ),
             ],
             2
-          ),
-        ])
-      : _c("div", [_vm._m(0)]),
+          )
+        : _c("div", [_c("h3", [_vm._v("Loading...")])]),
+      _vm._v(" "),
+      _vm._m(0),
+    ]),
   ])
 }
 var staticRenderFns = [
@@ -3802,8 +3831,34 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("h3", [_vm._v("Loading...")]),
+    return _c("div", { staticClass: "buttonsTagsCategories" }, [
+      _c("div", { staticClass: "categoriesBox" }, [
+        _c("h3", [_vm._v("Categorie")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "categoriesList" }, [
+          _c("span", [_vm._v("categorie")]),
+          _vm._v(" "),
+          _c("span", [_vm._v("categorie")]),
+          _vm._v(" "),
+          _c("span", [_vm._v("categorie")]),
+          _vm._v(" "),
+          _c("span", [_vm._v("categorie")]),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "tagsBox" }, [
+        _c("h3", [_vm._v("Tags")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "tagsList" }, [
+          _c("span", [_vm._v("Tags")]),
+          _vm._v(" "),
+          _c("span", [_vm._v("Tags")]),
+          _vm._v(" "),
+          _c("span", [_vm._v("Tags")]),
+          _vm._v(" "),
+          _c("span", [_vm._v("Tags")]),
+        ]),
+      ]),
     ])
   },
 ]

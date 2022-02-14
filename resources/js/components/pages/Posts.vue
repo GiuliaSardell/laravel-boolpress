@@ -1,7 +1,9 @@
 <template>
   <main>
-    <div v-if="posts">
-      <div class="container">
+    
+    <div class="container">
+
+      <div class="postsList" v-if="posts">
         <h1>i miei post</h1>
         <PostItems
           v-for="post in posts"
@@ -19,12 +21,37 @@
         >Next</button>
 
       </div>
-    </div>
-    <div v-else>
-      <div class="container">
-         <h3>Loading...</h3>
+    
+      <div v-else>
+          <h3>Loading...</h3>     
       </div>
-     
+    
+
+      <div class="buttonsTagsCategories">
+
+        <div class="categoriesBox">
+          <h3>Categorie</h3> 
+          <div class="categoriesList">
+            <span>categorie</span>
+            <span>categorie</span>
+            <span>categorie</span>
+            <span>categorie</span>
+          </div>
+          
+        </div>
+        
+        <div class="tagsBox">
+          <h3>Tags</h3>
+          <div class="tagsList">
+            <span>Tags</span>
+            <span>Tags</span>
+            <span>Tags</span>
+            <span>Tags</span>
+          </div>
+          
+        </div>
+      </div>
+
     </div>
    
   </main>
@@ -72,6 +99,42 @@ main{
   padding: 30px 0;
   .container{
     margin-bottom: 50px;
+    display: flex;
   }
+  .postsList{
+    
+    margin: 0 50px;
+  }
+
+  .categoriesBox, .tagsBox{
+    border: 1px solid black;
+    padding: 10px;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .categoriesList, .tagsList{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    span{
+      display: inline-block;
+      padding: 5px;
+      margin: 10px;
+      background-color: lightblue;
+    }
+  }
+
+  .tagsList{
+    span{
+      background-color: lightgreen;
+    }
+  }
+
 }
 </style>
