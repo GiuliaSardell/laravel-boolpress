@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Post;
 use App\Tag;
 use Illuminate\Http\Request;
+use SebastianBergmann\Environment\Console;
 
 class PostController extends Controller
 {
@@ -23,6 +24,20 @@ class PostController extends Controller
 
         return response()->json($post);
         //genero il json del singolo post in base allo slug
+    }
+
+    public function getPostsByCategory($name_category){
+        $category = Category::where('name', $name_category)->first();
+        
+        
+        return response()->json($category);
+    }
+
+    public function getPostsByTag($slug_tag){
+        $tag = Tag::where('slug', $slug_tag)->first();
+        
+        
+        return response()->json($tag);
     }
 }
 

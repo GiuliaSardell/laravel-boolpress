@@ -21,11 +21,13 @@ Route::get('prova', function(){
     //mi ritorna il json invece della vista
 });
 
-Route::get('posts', 'Api\PostController@index');
+// Route::get('posts', 'Api\PostController@index');
 
 Route::namespace('Api')
     ->prefix('posts')
     ->group(function(){
         Route::get('/', 'PostController@index');
         Route::get('{slug}', 'PostController@show');
+        Route::get('postcategory/{name}', 'PostController@getPostsByCategory');
+        Route::get('posttag/{slug}', 'PostController@getPostsByTag');
     });
