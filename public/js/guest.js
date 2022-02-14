@@ -2117,6 +2117,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2162,6 +2163,14 @@ __webpack_require__.r(__webpack_exports__);
       axios.get(this.apiUrl + '/postcategory/' + name_category).then(function (res) {
         console.log(res.data.posts);
         _this2.posts = res.data.posts;
+      });
+    },
+    getPostTag: function getPostTag(slug_tag) {
+      var _this3 = this;
+
+      axios.get(this.apiUrl + '/posttag/' + slug_tag).then(function (res) {
+        console.log(res.data.posts);
+        _this3.posts = res.data.posts;
       });
     }
   }
@@ -2279,6 +2288,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -3932,7 +3942,10 @@ var render = function () {
         _vm._v(" "),
         _c("Sidebar", {
           attrs: { tags: _vm.tags, categories: _vm.categories },
-          on: { getPostCategory: _vm.getPostCategory },
+          on: {
+            getPostCategory: _vm.getPostCategory,
+            getPostTag: _vm.getPostTag,
+          },
         }),
       ],
       1
@@ -4132,9 +4145,18 @@ var render = function () {
           "div",
           { staticClass: "tagsList" },
           _vm._l(_vm.tags, function (tag) {
-            return _c("span", { key: "tag" + tag.id }, [
-              _vm._v("\r\n          " + _vm._s(tag.name) + "\r\n        "),
-            ])
+            return _c(
+              "span",
+              {
+                key: "tag" + tag.id,
+                on: {
+                  click: function ($event) {
+                    return _vm.$emit("getPostTag", tag.slug)
+                  },
+                },
+              },
+              [_vm._v("\r\n          " + _vm._s(tag.name) + "\r\n        ")]
+            )
           }),
           0
         ),

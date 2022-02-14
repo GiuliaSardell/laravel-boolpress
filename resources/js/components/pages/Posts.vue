@@ -30,6 +30,7 @@
         :tags="tags"
         :categories="categories"
         @getPostCategory="getPostCategory"
+        @getPostTag="getPostTag"
       />
    
 
@@ -85,7 +86,15 @@ export default {
         console.log(res.data.posts)
         this.posts = res.data.posts;
       })
-    }
+    },
+
+    getPostTag(slug_tag){
+      axios.get(this.apiUrl + '/posttag/' + slug_tag)
+      .then(res =>{
+        console.log(res.data.posts)
+        this.posts = res.data.posts;
+      })
+    },
   }
 }
 </script>

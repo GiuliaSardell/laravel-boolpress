@@ -23,6 +23,7 @@
         <span
           v-for="tag in tags"
           :key="`tag${tag.id}`"
+          @click="$emit('getPostTag', tag.slug)"
         >
           {{tag.name}}
         </span>
