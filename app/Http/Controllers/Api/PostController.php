@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Category;
 use App\Http\Controllers\Controller;
 use App\Post;
+use App\Tag;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -11,7 +13,9 @@ class PostController extends Controller
     public function index(){
 
         $posts = Post::paginate(4); //prendo tutti i post
-        return response()->json($posts);
+        $tags = Tag::all(); //prendo tutti i tag
+        $categories = Category::all(); //prendo tutte le categorie
+        return response()->json(compact('posts', 'tags', 'categories'));
     }
 
     public function show($slug){

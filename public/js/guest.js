@@ -2147,7 +2147,9 @@ __webpack_require__.r(__webpack_exports__);
       //prendo tutti i post
       posts: null,
       //per gestire il loading
-      pages: {}
+      pages: {},
+      tags: [],
+      categories: []
     };
   },
   mounted: function mounted() {
@@ -2159,7 +2161,10 @@ __webpack_require__.r(__webpack_exports__);
 
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
       axios.get(this.apiUrl + page).then(function (res) {
-        _this.posts = res.data.data;
+        _this.posts = res.data.posts.data;
+        _this.categories = res.data.categories;
+        _this.tags = res.data.tags;
+        console.log('categories', _this.categories, 'tags', _this.tags);
         console.log(_this.posts);
         _this.pages = {
           current: res.data.current_page,
@@ -2304,7 +2309,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "main[data-v-9212e6a6] {\n  padding: 30px 0;\n}\nmain .container[data-v-9212e6a6] {\n  margin-bottom: 50px;\n  display: flex;\n}\nmain .postsList[data-v-9212e6a6] {\n  margin: 0 50px;\n}\nmain .categoriesBox[data-v-9212e6a6], main .tagsBox[data-v-9212e6a6] {\n  border: 1px solid black;\n  padding: 10px;\n  margin: 20px 0;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}\nmain .categoriesBox .categoriesList[data-v-9212e6a6], main .categoriesBox .tagsList[data-v-9212e6a6], main .tagsBox .categoriesList[data-v-9212e6a6], main .tagsBox .tagsList[data-v-9212e6a6] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-wrap: wrap;\n}\nmain .categoriesBox span[data-v-9212e6a6], main .tagsBox span[data-v-9212e6a6] {\n  display: inline-block;\n  padding: 5px;\n  margin: 10px;\n  background-color: lightblue;\n}\nmain .tagsList span[data-v-9212e6a6] {\n  background-color: lightgreen;\n}", ""]);
+exports.push([module.i, "main[data-v-9212e6a6] {\n  padding: 30px 0;\n}\nmain .container[data-v-9212e6a6] {\n  margin-bottom: 50px;\n  display: flex;\n}\nmain .postsList[data-v-9212e6a6] {\n  margin: 0 50px;\n}\nmain .categoriesBox[data-v-9212e6a6], main .tagsBox[data-v-9212e6a6] {\n  border: 1px solid black;\n  padding: 10px;\n  margin: 20px 0;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}\nmain .categoriesBox .categoriesList[data-v-9212e6a6], main .categoriesBox .tagsList[data-v-9212e6a6], main .tagsBox .categoriesList[data-v-9212e6a6], main .tagsBox .tagsList[data-v-9212e6a6] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-wrap: wrap;\n}\nmain .categoriesBox span[data-v-9212e6a6], main .tagsBox span[data-v-9212e6a6] {\n  display: inline-block;\n  padding: 5px;\n  margin: 10px;\n  background-color: lightblue;\n  cursor: pointer;\n}\nmain .categoriesBox span[data-v-9212e6a6]:hover, main .tagsBox span[data-v-9212e6a6]:hover {\n  color: white;\n}\nmain .tagsList span[data-v-9212e6a6] {\n  background-color: lightgreen;\n}", ""]);
 
 // exports
 

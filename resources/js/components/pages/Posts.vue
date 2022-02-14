@@ -72,7 +72,9 @@ export default {
     return{
       apiUrl: 'http://127.0.0.1:8000/api/posts?page=', //prendo tutti i post
       posts: null, //per gestire il loading
-      pages: {}
+      pages: {},
+      tags: [],
+      categories: []
     }
   },
   mounted(){
@@ -82,7 +84,10 @@ export default {
     getPosts(page = 1){
       axios.get(this.apiUrl + page)
       .then(res => {
-        this.posts = res.data.data
+        this.posts = res.data.posts.data;
+        this.categories = res.data.categories;
+        this.tags = res.data.tags;
+        console.log('categories', this.categories, 'tags', this.tags)
         console.log(this.posts)
         this.pages = {
           current: res.data.current_page,
@@ -127,6 +132,11 @@ main{
       padding: 5px;
       margin: 10px;
       background-color: lightblue;
+      cursor: pointer;
+      &:hover{
+        color: white;
+      }
+
     }
   }
 
