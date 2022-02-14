@@ -26,31 +26,11 @@
           <h3>Loading...</h3>     
       </div>
     
-
-      <div class="buttonsTagsCategories">
-
-        <div class="categoriesBox">
-          <h3>Categorie</h3> 
-          <div class="categoriesList">
-            <span>categorie</span>
-            <span>categorie</span>
-            <span>categorie</span>
-            <span>categorie</span>
-          </div>
-          
-        </div>
-        
-        <div class="tagsBox">
-          <h3>Tags</h3>
-          <div class="tagsList">
-            <span>Tags</span>
-            <span>Tags</span>
-            <span>Tags</span>
-            <span>Tags</span>
-          </div>
-          
-        </div>
-      </div>
+      <Sidebar 
+        :tags="tags"
+        :categories="categories"
+      />
+   
 
     </div>
    
@@ -62,11 +42,13 @@
 <script>
 
 import PostItems from '../partials/PostItems';
+import Sidebar from '../partials/Sidebar.vue';
 
 export default {
   name: 'Posts',
   components: {
-    PostItems
+    PostItems,
+    Sidebar
   },
   data(){
     return{
@@ -109,41 +91,6 @@ main{
   .postsList{
     
     margin: 0 50px;
-  }
-
-  .categoriesBox, .tagsBox{
-    border: 1px solid black;
-    padding: 10px;
-    margin: 20px 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    .categoriesList, .tagsList{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    span{
-      display: inline-block;
-      padding: 5px;
-      margin: 10px;
-      background-color: lightblue;
-      cursor: pointer;
-      &:hover{
-        color: white;
-      }
-
-    }
-  }
-
-  .tagsList{
-    span{
-      background-color: lightgreen;
-    }
   }
 
 }
