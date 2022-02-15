@@ -33,8 +33,8 @@ class PostController extends Controller
         return response()->json($category);
     }
 
-    public function getPostsByTag($slug_tag){
-        $tag = Tag::where('slug', $slug_tag)->with('posts.category')->first();
+    public function getPostsByTag($name_tag){
+        $tag = Tag::where('name', $name_tag)->with('posts.category')->first();
         
         
         return response()->json($tag);

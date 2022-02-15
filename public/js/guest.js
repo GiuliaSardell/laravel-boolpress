@@ -2161,15 +2161,15 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       axios.get(this.apiUrl + '/postcategory/' + name_category).then(function (res) {
-        console.log(res.data.posts);
+        console.log('category ', res.data.posts);
         _this2.posts = res.data.posts;
       });
     },
-    getPostTag: function getPostTag(slug_tag) {
+    getPostTag: function getPostTag(name_tag) {
       var _this3 = this;
 
-      axios.get(this.apiUrl + '/posttag/' + slug_tag).then(function (res) {
-        console.log(res.data.posts);
+      axios.get(this.apiUrl + '/posttag/' + name_tag).then(function (res) {
+        console.log('tag ', res.data.posts);
         _this3.posts = res.data.posts;
       });
     }
@@ -4151,7 +4151,7 @@ var render = function () {
                 key: "tag" + tag.id,
                 on: {
                   click: function ($event) {
-                    return _vm.$emit("getPostTag", tag.slug)
+                    return _vm.$emit("getPostTag", tag.name)
                   },
                 },
               },

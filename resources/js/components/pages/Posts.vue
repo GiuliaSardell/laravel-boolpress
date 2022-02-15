@@ -83,15 +83,15 @@ export default {
     getPostCategory(name_category){
       axios.get(this.apiUrl + '/postcategory/' + name_category)
       .then(res =>{
-        console.log(res.data.posts)
+        console.log('category ',res.data.posts)
         this.posts = res.data.posts;
       })
     },
 
-    getPostTag(slug_tag){
-      axios.get(this.apiUrl + '/posttag/' + slug_tag)
+    getPostTag(name_tag){
+      axios.get(this.apiUrl + '/posttag/' + name_tag)
       .then(res =>{
-        console.log(res.data.posts)
+        console.log('tag ',res.data.posts)
         this.posts = res.data.posts;
       })
     },
